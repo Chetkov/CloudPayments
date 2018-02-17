@@ -2,7 +2,7 @@
     "name": "v.chetkov/cloud-payments",
     "description": "Library for work with CloudPayments API",
     "type": "library",
-    "license": "mit",
+    "license": "MIT",
     "authors": [
         {
             "name": "v.chetkov",
