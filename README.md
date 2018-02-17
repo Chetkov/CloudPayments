@@ -1,6 +1,9 @@
 # CloudPayments
 Библиотека для работы с API платежного сервиса CloudPayments
 
+#Требования
+- Минимальная версия PHP - 7.1
+
 #Установка
 ```
 composer require "v.chetkov/cloud-payments:*"
