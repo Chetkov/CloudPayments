@@ -110,4 +110,33 @@ class Model
         }
         return $result;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFirst()
+    {
+        $values = array_values($this->storage);
+        return $values[0] ?? null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLast()
+    {
+        $values = array_values($this->storage);
+        return $values[count($values) - 1] ?? null;
+    }
+
+    /**
+     * @param int $number
+     *
+     * @return mixed
+     */
+    public function getElement(int $number)
+    {
+        $values = array_values($this->storage);
+        return $values[$number] ?? null;
+    }
 }
