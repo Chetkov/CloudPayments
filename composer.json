@@ -1,0 +1,19 @@
+{
+    "name": "v.chetkov/cloud-payments",
+    "description": "Library for work with CloudPayments API",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "v.chetkov",
+            "email": "chetkov.valeriy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CloudPayments\\": "Src/"
+        },
+        "files": ["./constants.php"]
+    },
+    "minimum-stability": "stable"
+}
