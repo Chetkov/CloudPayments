@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\Confirm as Hydrator;
 use CloudPayments\Domain\Request\Payment\Confirm as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Подтверждение оплаты для двухстадийного платежа
@@ -18,11 +19,12 @@ class Confirm extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function confirm(Request $request)
+    public function confirm(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

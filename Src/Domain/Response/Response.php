@@ -2,6 +2,8 @@
 
 namespace CloudPayments\Domain\Response;
 
+use CloudPayments\Domain\Model\Model;
+
 /**
  * Class Response
  * @package CloudPayments\Domain\Response
@@ -14,20 +16,23 @@ class Response
     protected $success;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $message;
 
     /**
+     * @var Model|null
+     */
+    protected $model;
+
+    /**
      * Response constructor.
      *
-     * @param bool   $success
-     * @param string $message
+     * @param bool $success
      */
-    public function __construct(bool $success, string $message)
+    public function __construct(bool $success)
     {
         $this->success = $success;
-        $this->message = $message;
     }
 
     /**
@@ -39,10 +44,40 @@ class Response
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->message;
+    }
+
+    /**
+     * @param string $message
+     *
+     * @return Response
+     */
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+        return $this;
+    }
+
+    /**
+     * @return Model|null
+     */
+    public function getModel(): ?Model
+    {
+        return $this->model;
+    }
+
+    /**
+     * @param Model|null $model
+     *
+     * @return Response
+     */
+    public function setModel(Model $model): self
+    {
+        $this->model = $model;
+        return $this;
     }
 }

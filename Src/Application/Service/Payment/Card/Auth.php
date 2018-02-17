@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment\Card;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\Card\Card as Hydrator;
 use CloudPayments\Domain\Request\Payment\Card\Card as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Оплата по криптограмме для двухстадийного платежа
@@ -18,11 +19,12 @@ class Auth extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function auth(Request $request)
+    public function auth(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

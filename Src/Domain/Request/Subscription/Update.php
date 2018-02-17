@@ -80,11 +80,11 @@ class Update
     }
 
     /**
-     * @param null|string $description
+     * @param string $description
      *
      * @return Update
      */
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
         return $this;
@@ -103,7 +103,7 @@ class Update
      *
      * @return Update
      */
-    public function setAmount(?int $amount): self
+    public function setAmount(int $amount): self
     {
         $this->amount = $amount;
         return $this;
@@ -118,11 +118,11 @@ class Update
     }
 
     /**
-     * @param null|string $currency
+     * @param string $currency
      *
      * @return Update
      */
-    public function setCurrency(?string $currency): self
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
         return $this;
@@ -137,11 +137,11 @@ class Update
     }
 
     /**
-     * @param bool|null $requireConfirmation
+     * @param bool $requireConfirmation
      *
      * @return Update
      */
-    public function setRequireConfirmation(?bool $requireConfirmation): self
+    public function setRequireConfirmation(bool $requireConfirmation): self
     {
         $this->requireConfirmation = $requireConfirmation;
         return $this;
@@ -160,7 +160,7 @@ class Update
      *
      * @return Update
      */
-    public function setStartDate(?\DateTime $startDate): self
+    public function setStartDate(\DateTime $startDate): self
     {
         $this->startDate = $startDate;
         return $this;
@@ -175,11 +175,11 @@ class Update
     }
 
     /**
-     * @param null|string $interval
+     * @param string $interval
      *
      * @return Update
      */
-    public function setInterval(?string $interval): self
+    public function setInterval(string $interval): self
     {
         $this->interval = $interval;
         return $this;
@@ -198,7 +198,7 @@ class Update
      *
      * @return Update
      */
-    public function setPeriod(?int $period): self
+    public function setPeriod(int $period): self
     {
         $this->period = $period;
         return $this;
@@ -217,7 +217,7 @@ class Update
      *
      * @return Update
      */
-    public function setMaxPeriods(?int $maxPeriods): self
+    public function setMaxPeriods(int $maxPeriods): self
     {
         $this->maxPeriods = $maxPeriods;
         return $this;

@@ -195,7 +195,7 @@ class Create
      *
      * @return Create
      */
-    public function setMaxPeriods(?int $maxPeriods): self
+    public function setMaxPeriods(int $maxPeriods): self
     {
         $this->maxPeriods = $maxPeriods;
         return $this;

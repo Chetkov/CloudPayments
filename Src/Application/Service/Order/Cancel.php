@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Order;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Order\Cancel as Hydrator;
 use CloudPayments\Domain\Request\Order\Cancel as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Отмена созданного счета
@@ -18,11 +19,12 @@ class Cancel extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function cancel(Request $request)
+    public function cancel(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

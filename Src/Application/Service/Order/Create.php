@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Order;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Order\Create as Hydrator;
 use CloudPayments\Domain\Request\Order\Create as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Создание счета для отправки по почте
@@ -18,11 +19,12 @@ class Create extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function create(Request $request)
+    public function create(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

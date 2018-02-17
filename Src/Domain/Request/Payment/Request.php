@@ -73,11 +73,11 @@ class Request
     }
 
     /**
-     * @param null|string $ipAddress
+     * @param string $ipAddress
      *
      * @return Request
      */
-    public function setIpAddress(?string $ipAddress): self
+    public function setIpAddress(string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
         return $this;
@@ -92,11 +92,11 @@ class Request
     }
 
     /**
-     * @param null|string $invoiceId
+     * @param string $invoiceId
      *
      * @return Request
      */
-    public function setInvoiceId(?string $invoiceId): self
+    public function setInvoiceId(string $invoiceId): self
     {
         $this->invoiceId = $invoiceId;
         return $this;
@@ -111,11 +111,11 @@ class Request
     }
 
     /**
-     * @param null|string $description
+     * @param string $description
      *
      * @return Request
      */
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
         return $this;
@@ -130,11 +130,11 @@ class Request
     }
 
     /**
-     * @param null|string $accountId
+     * @param string $accountId
      *
      * @return Request
      */
-    public function setAccountId(?string $accountId): self
+    public function setAccountId(string $accountId): self
     {
         $this->accountId = $accountId;
         return $this;
@@ -149,11 +149,11 @@ class Request
     }
 
     /**
-     * @param null|string $email
+     * @param string $email
      *
      * @return Request
      */
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
         return $this;
@@ -168,11 +168,11 @@ class Request
     }
 
     /**
-     * @param array|null $jsonData
+     * @param array $jsonData
      *
      * @return Request
      */
-    public function setJsonData(?array $jsonData): self
+    public function setJsonData(array $jsonData): self
     {
         $this->jsonData = $jsonData;
         return $this;

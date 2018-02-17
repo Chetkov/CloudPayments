@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Subscription;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Subscription\Find as Hydrator;
 use CloudPayments\Domain\Request\Subscription\Find as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Поиск подписок
@@ -18,11 +19,12 @@ class Find extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function find(Request $request)
+    public function find(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\PaymentList as Hydrator;
 use CloudPayments\Domain\Request\Payment\PaymentList as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Выгрузка списка транзакций
@@ -18,11 +19,12 @@ class PaymentList extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function list(Request $request)
+    public function list(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

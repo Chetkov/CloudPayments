@@ -3,6 +3,8 @@
 namespace CloudPayments\Application\Service;
 
 use CloudPayments\Domain\Config\Config;
+use CloudPayments\Domain\Model\Model;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Class Service
@@ -49,10 +51,10 @@ class Service
     /**
      * @param array $parameters
      *
-     * @return mixed
+     * @return Response
      * @throws \Exception
      */
-    protected function execute(array $parameters)
+    protected function execute(array $parameters): Response
     {
         $headers = [
             'Authorization: Basic ' . base64_encode(
@@ -83,10 +85,16 @@ class Service
         }
 
         $response = json_decode($response, true);
-        if (!$response['Success']) {
-            throw new \Exception("Error: {$response['Message']}");
+
+        $result = new Response($response['Success']);
+        if (isset($response['Message'])) {
+            $result->setMessage($response['Message']);
+        }
+        if (isset($response['Model'])) {
+            $model = new Model($response['Model']);
+            $result->setModel($model);
         }
 
-        return $response;
+        return $result;
     }
 }

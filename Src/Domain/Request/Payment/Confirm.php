@@ -60,11 +60,11 @@ class Confirm
     }
 
     /**
-     * @param array|null $jsonData
+     * @param array $jsonData
      *
      * @return Confirm
      */
-    public function setJsonData(?array $jsonData): self
+    public function setJsonData(array $jsonData): self
     {
         $this->jsonData = $jsonData;
         return $this;

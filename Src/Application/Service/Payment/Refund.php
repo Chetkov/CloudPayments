@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\Refund as Hydrator;
 use CloudPayments\Domain\Request\Payment\Refund as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Возврат денег
@@ -18,11 +19,12 @@ class Refund extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function refund(Request $request)
+    public function refund(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

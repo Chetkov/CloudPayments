@@ -125,11 +125,11 @@ class Create
     }
 
     /**
-     * @param null|string $email
+     * @param string $email
      *
      * @return Create
      */
-    public function setEmail($email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
         return $this;
@@ -144,11 +144,11 @@ class Create
     }
 
     /**
-     * @param bool|null $requireConfirmation
+     * @param bool $requireConfirmation
      *
      * @return Create
      */
-    public function setRequireConfirmation($requireConfirmation): self
+    public function setRequireConfirmation(bool $requireConfirmation): self
     {
         $this->requireConfirmation = $requireConfirmation;
         return $this;
@@ -163,11 +163,11 @@ class Create
     }
 
     /**
-     * @param bool|null $sendEmail
+     * @param bool $sendEmail
      *
      * @return Create
      */
-    public function setSendEmail($sendEmail): self
+    public function setSendEmail(bool $sendEmail): self
     {
         $this->sendEmail = $sendEmail;
         return $this;
@@ -182,11 +182,11 @@ class Create
     }
 
     /**
-     * @param null|string $invoiceId
+     * @param string $invoiceId
      *
      * @return Create
      */
-    public function setInvoiceId($invoiceId): self
+    public function setInvoiceId(string $invoiceId): self
     {
         $this->invoiceId = $invoiceId;
         return $this;
@@ -201,11 +201,11 @@ class Create
     }
 
     /**
-     * @param null|string $accountId
+     * @param string $accountId
      *
      * @return Create
      */
-    public function setAccountId($accountId): self
+    public function setAccountId(string $accountId): self
     {
         $this->accountId = $accountId;
         return $this;
@@ -220,11 +220,11 @@ class Create
     }
 
     /**
-     * @param null|string $phone
+     * @param string $phone
      *
      * @return Create
      */
-    public function setPhone($phone): self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
         return $this;
@@ -239,11 +239,11 @@ class Create
     }
 
     /**
-     * @param bool|null $sendSms
+     * @param bool $sendSms
      *
      * @return Create
      */
-    public function setSendSms($sendSms): self
+    public function setSendSms(bool $sendSms): self
     {
         $this->sendSms = $sendSms;
         return $this;
@@ -258,11 +258,11 @@ class Create
     }
 
     /**
-     * @param bool|null $sendViber
+     * @param bool $sendViber
      *
      * @return Create
      */
-    public function setSendViber($sendViber): self
+    public function setSendViber(bool $sendViber): self
     {
         $this->sendViber = $sendViber;
         return $this;
@@ -277,11 +277,11 @@ class Create
     }
 
     /**
-     * @param null|string $cultureInfo
+     * @param string $cultureInfo
      *
      * @return Create
      */
-    public function setCultureInfo($cultureInfo): self
+    public function setCultureInfo(string $cultureInfo): self
     {
         $this->cultureInfo = $cultureInfo;
         return $this;
@@ -296,11 +296,11 @@ class Create
     }
 
     /**
-     * @param null|string $subscriptionBehavior
+     * @param string $subscriptionBehavior
      *
      * @return Create
      */
-    public function setSubscriptionBehavior($subscriptionBehavior): self
+    public function setSubscriptionBehavior(string $subscriptionBehavior): self
     {
         $this->subscriptionBehavior = $subscriptionBehavior;
         return $this;
@@ -315,11 +315,11 @@ class Create
     }
 
     /**
-     * @param array|null $jsonData
+     * @param array $jsonData
      *
      * @return Create
      */
-    public function setJsonData($jsonData): self
+    public function setJsonData(array $jsonData): self
     {
         $this->jsonData = $jsonData;
         return $this;

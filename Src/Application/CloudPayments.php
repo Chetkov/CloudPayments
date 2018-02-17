@@ -23,8 +23,6 @@ use CloudPayments\Application\Service\Subscription\Find as SubscriptionFind;
 use CloudPayments\Application\Service\Subscription\Get as SubscriptionGet;
 use CloudPayments\Application\Service\Subscription\Update as SubscriptionUpdate;
 use CloudPayments\Domain\Config\Config;
-use CloudPayments\Domain\Model\Subscription;
-use CloudPayments\Domain\Model\Subscriptions;
 use CloudPayments\Domain\Request\ApplePay\StartSession as ApplePayStartSessionRequest;
 use CloudPayments\Domain\Request\Order\Cancel as OrderCancelRequest;
 use CloudPayments\Domain\Request\Order\Create as OrderCreateRequest;
@@ -43,6 +41,7 @@ use CloudPayments\Domain\Request\Subscription\Create as SubscriptionCreateReques
 use CloudPayments\Domain\Request\Subscription\Find as SubscriptionFindRequest;
 use CloudPayments\Domain\Request\Subscription\Get as SubscriptionGetRequest;
 use CloudPayments\Domain\Request\Subscription\Update as SubscriptionUpdateRequest;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Class CloudPayments
@@ -68,140 +67,153 @@ class CloudPayments
     /**
      * @param CardRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsCardsCharge(CardRequest $request)
+    public function paymentsCardsCharge(CardRequest $request): Response
     {
-        CardCharge::getInstance($this->config)->charge($request);
+        return CardCharge::getInstance($this->config)->charge($request);
     }
 
     /**
      * @param CardRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsCardsAuth(CardRequest $request)
+    public function paymentsCardsAuth(CardRequest $request): Response
     {
-        CardAuth::getInstance($this->config)->auth($request);
+        return CardAuth::getInstance($this->config)->auth($request);
     }
 
     /**
      * @param Post3DsRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsCardsPost3ds(Post3DsRequest $request)
+    public function paymentsCardsPost3ds(Post3DsRequest $request): Response
     {
-        Post3Ds::getInstance($this->config)->post3ds($request);
+        return Post3Ds::getInstance($this->config)->post3ds($request);
     }
 
     /**
      * @param TokenRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsTokensCharge(TokenRequest $request)
+    public function paymentsTokensCharge(TokenRequest $request): Response
     {
-        TokenCharge::getInstance($this->config)->charge($request);
+        return TokenCharge::getInstance($this->config)->charge($request);
     }
 
     /**
      * @param TokenRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsTokensAuth(TokenRequest $request)
+    public function paymentsTokensAuth(TokenRequest $request): Response
     {
-        TokenAuth::getInstance($this->config)->auth($request);
+        return TokenAuth::getInstance($this->config)->auth($request);
     }
 
     /**
      * @param ConfirmRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsConfirm(ConfirmRequest $request)
+    public function paymentsConfirm(ConfirmRequest $request): Response
     {
-        Confirm::getInstance($this->config)->confirm($request);
+        return Confirm::getInstance($this->config)->confirm($request);
     }
 
     /**
      * @param VoidPaymentRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsVoid(VoidPaymentRequest $request)
+    public function paymentsVoid(VoidPaymentRequest $request): Response
     {
-        VoidPayment::getInstance($this->config)->void($request);
+        return VoidPayment::getInstance($this->config)->void($request);
     }
 
     /**
      * @param RefundRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsRefund(RefundRequest $request)
+    public function paymentsRefund(RefundRequest $request): Response
     {
-        Refund::getInstance($this->config)->refund($request);
+        return Refund::getInstance($this->config)->refund($request);
     }
 
     /**
      * @param TopUpRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsCardsTopUp(TopUpRequest $request)
+    public function paymentsCardsTopUp(TopUpRequest $request): Response
     {
-        TopUp::getInstance($this->config)->topUp($request);
+        return TopUp::getInstance($this->config)->topUp($request);
     }
 
     /**
      * @param PaymentGetRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsGet(PaymentGetRequest $request)
+    public function paymentsGet(PaymentGetRequest $request): Response
     {
-        PaymentGet::getInstance($this->config)->get($request);
+        return PaymentGet::getInstance($this->config)->get($request);
     }
 
     /**
      * @param PaymentFindRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsFind(PaymentFindRequest $request)
+    public function paymentsFind(PaymentFindRequest $request): Response
     {
-        PaymentFind::getInstance($this->config)->find($request);
+        return PaymentFind::getInstance($this->config)->find($request);
     }
 
     /**
      * @param PaymentListRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function paymentsList(PaymentListRequest $request)
+    public function paymentsList(PaymentListRequest $request): Response
     {
-        PaymentList::getInstance($this->config)->list($request);
+        return PaymentList::getInstance($this->config)->list($request);
     }
 
     /**
      * @param SubscriptionCreateRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function subscriptionsCreate(SubscriptionCreateRequest $request)
+    public function subscriptionsCreate(SubscriptionCreateRequest $request): Response
     {
-        SubscriptionCreate::getInstance($this->config)->create($request);
+        return SubscriptionCreate::getInstance($this->config)->create($request);
     }
 
     /**
      * @param SubscriptionGetRequest $request
      *
-     * @return Subscription
+     * @return Response
      * @throws \Exception
      */
-    public function subscriptionsGet(SubscriptionGetRequest $request): Subscription
+    public function subscriptionsGet(SubscriptionGetRequest $request): Response
     {
         return SubscriptionGet::getInstance($this->config)->get($request);
     }
@@ -209,10 +221,10 @@ class CloudPayments
     /**
      * @param SubscriptionFindRequest $request
      *
-     * @return Subscriptions
+     * @return Response
      * @throws \Exception
      */
-    public function subscriptionsFind(SubscriptionFindRequest $request): Subscriptions
+    public function subscriptionsFind(SubscriptionFindRequest $request): Response
     {
         return SubscriptionFind::getInstance($this->config)->find($request);
     }
@@ -220,50 +232,55 @@ class CloudPayments
     /**
      * @param SubscriptionUpdateRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function subscriptionsUpdate(SubscriptionUpdateRequest $request)
+    public function subscriptionsUpdate(SubscriptionUpdateRequest $request): Response
     {
-        SubscriptionUpdate::getInstance($this->config)->update($request);
+        return SubscriptionUpdate::getInstance($this->config)->update($request);
     }
 
     /**
      * @param SubscriptionCancelRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function subscriptionsCancel(SubscriptionCancelRequest $request)
+    public function subscriptionsCancel(SubscriptionCancelRequest $request): Response
     {
-        SubscriptionCancel::getInstance($this->config)->cancel($request);
+        return SubscriptionCancel::getInstance($this->config)->cancel($request);
     }
 
     /**
      * @param OrderCreateRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function ordersCreate(OrderCreateRequest $request)
+    public function ordersCreate(OrderCreateRequest $request): Response
     {
-        OrderCreate::getInstance($this->config)->create($request);
+        return OrderCreate::getInstance($this->config)->create($request);
     }
 
     /**
      * @param OrderCancelRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function orderCancel(OrderCancelRequest $request)
+    public function orderCancel(OrderCancelRequest $request): Response
     {
-        OrderCancel::getInstance($this->config)->cancel($request);
+        return OrderCancel::getInstance($this->config)->cancel($request);
     }
 
     /**
      * @param ApplePayStartSessionRequest $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function applePayStartSession(ApplePayStartSessionRequest $request)
+    public function applePayStartSession(ApplePayStartSessionRequest $request): Response
     {
-        StartSession::getInstance($this->config)->startSession($request);
+        return StartSession::getInstance($this->config)->startSession($request);
     }
 }

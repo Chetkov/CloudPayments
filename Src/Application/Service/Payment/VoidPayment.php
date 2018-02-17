@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\VoidPayment as Hydrator;
 use CloudPayments\Domain\Request\Payment\VoidPayment as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Отмена оплаты
@@ -18,11 +19,12 @@ class VoidPayment extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function void(Request $request)
+    public function void(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

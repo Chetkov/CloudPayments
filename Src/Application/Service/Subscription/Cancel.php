@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Subscription;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Subscription\Cancel as Hydrator;
 use CloudPayments\Domain\Request\Subscription\Cancel as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Отмена подписки на рекуррентные платежи
@@ -18,11 +19,12 @@ class Cancel extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function cancel(Request $request)
+    public function cancel(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

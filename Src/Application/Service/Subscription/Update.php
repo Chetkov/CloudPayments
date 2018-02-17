@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Subscription;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Subscription\Update as Hydrator;
 use CloudPayments\Domain\Request\Subscription\Update as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Изменение подписки на рекуррентные платежи
@@ -18,11 +19,12 @@ class Update extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function update(Request $request)
+    public function update(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

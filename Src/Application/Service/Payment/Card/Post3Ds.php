@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment\Card;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\Card\Post3Ds as Hydrator;
 use CloudPayments\Domain\Request\Payment\Card\Post3Ds as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Завершение оплаты
@@ -18,11 +19,12 @@ class Post3Ds extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function post3ds(Request $request)
+    public function post3ds(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

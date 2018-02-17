@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\ApplePay;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\ApplePay\StartSession as Request;
 use CloudPayments\Domain\Request\Hydrator\ApplePay\StartSession as Hydrator;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Запуск сессии для оплаты через Apple Pay
@@ -18,11 +19,12 @@ class StartSession extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function startSession(Request $request)
+    public function startSession(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

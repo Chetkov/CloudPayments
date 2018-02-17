@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment\Card;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\Card\TopUp as Hydrator;
 use CloudPayments\Domain\Request\Payment\Card\TopUp as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Выплата
@@ -18,11 +19,12 @@ class TopUp extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function topUp(Request $request)
+    public function topUp(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

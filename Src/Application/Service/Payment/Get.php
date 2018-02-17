@@ -5,6 +5,7 @@ namespace CloudPayments\Application\Service\Payment;
 use CloudPayments\Application\Service\Service;
 use CloudPayments\Domain\Request\Hydrator\Payment\Get as Hydrator;
 use CloudPayments\Domain\Request\Payment\Get as Request;
+use CloudPayments\Domain\Response\Response;
 
 /**
  * Просмотр информации об операции
@@ -18,11 +19,12 @@ class Get extends Service
     /**
      * @param Request $request
      *
+     * @return Response
      * @throws \Exception
      */
-    public function get(Request $request)
+    public function get(Request $request): Response
     {
         $parameters = Hydrator::extract($request);
-        $result = $this->execute($parameters);
+        return $this->execute($parameters);
     }
 }

@@ -45,11 +45,11 @@ class PaymentList
     }
 
     /**
-     * @param null|string $timeZone
+     * @param string $timeZone
      *
      * @return PaymentList
      */
-    public function setTimeZone(?string $timeZone): self
+    public function setTimeZone(string $timeZone): self
     {
         $this->timeZone = $timeZone;
         return $this;

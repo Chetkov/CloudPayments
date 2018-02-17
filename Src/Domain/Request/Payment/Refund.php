@@ -60,11 +60,11 @@ class Refund
     }
 
     /**
-     * @param array|null $jsonData
+     * @param array $jsonData
      *
      * @return Refund
      */
-    public function setJsonData(?array $jsonData): self
+    public function setJsonData(array $jsonData): self
     {
         $this->jsonData = $jsonData;
         return $this;
