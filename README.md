@@ -12,7 +12,8 @@ composer require "v.chetkov/cloud-payments:*"
 # Использование
 - Создаем экземпляр конфига
 ```php
-$config = new \CloudPayments\Domain\Config\Config(
+<?php
+$config = new Chetkov\CloudPayments\Config(
     'user',
     'password'
 );
@@ -20,7 +21,8 @@ $config = new \CloudPayments\Domain\Config\Config(
 
 - Создаем экземпляр фасада
 ```php
-$cloudPayments = \CloudPayments\Application\CloudPaymentsFactory::create($config);
+<?php
+$cloudPayments = Chetkov\CloudPayments\CloudPaymentsFactory::create($config);
 ```
 Фасад содержит полный перечень методов доступных в API CloudPayments (https://cloudpayments.ru/Docs/Api).
 
@@ -29,18 +31,21 @@ $cloudPayments = \CloudPayments\Application\CloudPaymentsFactory::create($config
 
 - Создаём запрос 
 ```php
-$subscriptionFindRequest = new \CloudPayments\Domain\Request\Subscription\Find('test@test.ru');
+<?php
+$subscriptionFindRequest = new Chetkov\CloudPayments\Request\Subscription\Find('test@test.ru');
 ```
 
 - Вызываем метод
 ```php
+<?php
 $response = $cloudPayments->subscriptionsFind($subscriptionFindRequest);
 ```
 
 - Обрабатываем ответ
 ```php
+<?php
 if (!$response->isSuccess()) {
-    throw new Exception($response->getMessage());
+    throw new RuntimeException($response->getMessage());
 }
 
 $model = $response->getModel();

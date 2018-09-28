@@ -2,9 +2,6 @@
 
 namespace Chetkov\CloudPayments;
 
-use Chetkov\CloudPayments\CloudPayments;
-use Chetkov\CloudPayments\Config;
-
 /**
  * Class CloudPaymentsFactory
  * @package Chetkov\CloudPayments
@@ -12,11 +9,25 @@ use Chetkov\CloudPayments\Config;
 class CloudPaymentsFactory
 {
     /**
-     * @param \Chetkov\CloudPayments\Config $config
+     * @var CLoudPayments[]
+     */
+    private static $instances = [];
+
+    /**
+     * @param Config $config
+     * @param bool $useSingleton
      * @return CloudPayments
      */
-    public static function create(\Chetkov\CloudPayments\Config $config): CloudPayments
+    public static function create(Config $config, bool $useSingleton = true): CloudPayments
     {
-        return new CloudPayments($config);
+        if (!$useSingleton) {
+            return new CloudPayments($config);
+        }
+
+        $uniqueConfigKey = sha1($config->getApiUrl() . $config->getUserName() . $config->getPassword());
+        if (!isset(self::$instances[$uniqueConfigKey])) {
+            self::$instances[$uniqueConfigKey] = new CloudPayments($config);
+        }
+        return self::$instances[$uniqueConfigKey];
     }
 }
