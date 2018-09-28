@@ -2,7 +2,6 @@
 
 namespace Chetkov\CloudPayments;
 
-use Chetkov\CloudPayments\Request\ApplePay\StartSession;
 use Chetkov\CloudPayments\Service\ApplePay\StartSession;
 use Chetkov\CloudPayments\Service\Order\Cancel as OrderCancel;
 use Chetkov\CloudPayments\Service\Order\Create as OrderCreate;
