@@ -5,15 +5,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "v.chetkov",
+            "name": "Валерий Четков",
             "email": "chetkov.valeriy@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "CloudPayments\\": "Src/"
+            "Chetkov\\CloudPayments\\": "src/"
         },
         "files": ["./constants.php"]
-    },
-    "minimum-stability": "stable"
+    }
 }

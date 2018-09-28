@@ -1,9 +1,9 @@
 <?php
 require_once 'vendor/autoload.php';
 
-use CloudPayments\Application\CloudPaymentsFactory;
-use CloudPayments\Domain\Config\Config;
-use CloudPayments\Domain\Request\Subscription\Find;
+use Chetkov\CloudPayments\CloudPaymentsFactory;
+use Chetkov\CloudPayments\Config;
+use Chetkov\CloudPayments\Request\Subscription\Find;
 
 $config = new Config(
     'user',
@@ -15,6 +15,6 @@ $cloudPayments = CloudPaymentsFactory::create($config);
 $subscriptionFindRequest = new Find('test@test.ru');
 $response = $cloudPayments->subscriptionsFind($subscriptionFindRequest);
 if (!$response->isSuccess()) {
-    throw new Exception($response->getMessage());
+    throw new RuntimeException($response->getMessage());
 }
 //do something
